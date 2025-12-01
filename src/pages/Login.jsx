@@ -11,7 +11,7 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     // Prototype : email/mdp fixes
-    if (email === "huguesmedegnon842@gmail.com" && password === "1234") {
+    if (email === "hippoliteagbodamakou@gmail.com" && password === "1234") {
       navigate("/dashboard");
     } else {
       alert("Email ou mot de passe incorrect !");
