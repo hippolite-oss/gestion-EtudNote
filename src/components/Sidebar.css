@@ -1,38 +1,154 @@
+/* Style pour CardStat */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-color: #cbd5e1;
+}
+
+.card:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #3b82f6);
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0ea5e9;
+  font-size: 24px;
+  flex-shrink: 0;
+  border: 1px solid #bae6fd;
+}
+
+.info h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.info p {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Style pour le conteneur des cartes (à ajouter si nécessaire) */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 24px;
+  margin-left: 220px; /* Pour compenser la sidebar fixe */
+}
+
+/* Améliorations pour le sidebar existant */
 .sidebar {
   width: 220px;
   height: 100vh;
-  background: #1e293b;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
   color: #fff;
-  padding: 20px;
+  padding: 28px 20px;
   position: fixed;
   left: 0;
   top: 0;
+  border-right: 1px solid #334155;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
 .sidebar-title {
   font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 30px;
+  font-weight: 700;
+  margin-bottom: 32px;
   text-align: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #334155;
+  letter-spacing: 0.5px;
 }
 
 .sidebar-menu {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar-menu li {
-  margin: 18px 0;
+  margin: 12px 0;
 }
 
 .sidebar-menu a {
-  color: #fff;
+  color: #cbd5e1;
   text-decoration: none;
-  font-size: 18px;
-  transition: 0.3s;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 .sidebar-menu a:hover {
   color: #38bdf8;
-  padding-left: 5px;
+  background: rgba(56, 189, 248, 0.1);
+  transform: translateX(4px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+    padding: 16px;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 20px;
+  }
+  
+  .sidebar-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .sidebar-menu li {
+    margin: 0;
+  }
+  
+  .sidebar-menu a {
+    padding: 8px 12px;
+  }
 }
