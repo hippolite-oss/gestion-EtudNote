@@ -1,0 +1,83 @@
+.notes-page {
+  margin-left: 240px;
+  padding: 20px;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+.notes-page h1 {
+  margin-bottom: 25px;
+  color: #111827;
+}
+
+.form-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+}
+
+.form-group {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #000dff;
+  box-shadow: 0 0 0 2px rgba(0,13,255,0.2);
+}
+
+.btn-add {
+  padding: 12px 20px;
+  background: #000dff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-add:hover {
+  background: #6b73ff;
+  transform: translateY(-2px);
+}
+
+.notes-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.notes-list th,
+.notes-list td {
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  text-align: center;
+}
+
+.notes-list th {
+  background: #f3f4f6;
+  font-weight: bold;
+}

@@ -1,0 +1,153 @@
+/* pages common block layout */
+.page-container {
+  margin-left: 240px; /* espace pour sidebar */
+  padding: 24px;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.blocks {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* card style */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+/* form */
+.form-block label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #374151;
+}
+.form-block input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+.form-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  cursor: pointer;
+}
+.btn.primary {
+  background: #0f172a;
+  color: #fff;
+  border: none;
+}
+.btn.small {
+  padding: 6px 8px;
+  font-size: 13px;
+}
+.btn.danger {
+  background: #ef4444;
+  color: white;
+  border: none;
+}
+
+/* lists / grid of students */
+.students-grid {
+  display: grid;
+  gap: 12px;
+}
+.student-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fbfdff;
+  border: 1px solid #eef2ff;
+}
+.student-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#6b73ff,#000dff);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+.student-name {
+  font-weight: 700;
+}
+.student-matricule {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* items grid for matieres */
+.items-grid {
+  display: grid;
+  gap: 12px;
+}
+.item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff7ed;
+  border: 1px solid #ffedd5;
+}
+.item-title {
+  font-weight: 700;
+}
+
+/* notes table */
+.notes-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.notes-table th, .notes-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f1f5f9;
+  text-align: left;
+}
+.notes-table thead tr th {
+  font-weight: 700;
+}
+
+/* small helpers */
+.muted {
+  color: #6b7280;
+  margin-top: 8px;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .blocks {
+    grid-template-columns: 1fr;
+  }
+  .page-container {
+    margin-left: 0;
+    padding: 16px;
+  }
+}

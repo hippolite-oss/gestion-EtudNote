@@ -1,0 +1,85 @@
+/* PAGE LOGIN */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0a0f33, #001999, #6b73ff);
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease infinite;
+}
+
+/* ANIMATION DU FOND */
+@keyframes gradientMove {
+  0% { background-position: left; }
+  50% { background-position: right; }
+  100% { background-position: left; }
+}
+
+/* CARD GLASSMORPHISM */
+.login-form {
+  width: 380px;
+  padding: 2.5rem;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  animation: fadeIn 0.7s ease;
+}
+
+/* Animation fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.login-form h2 {
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+/* INPUTS STYLE */
+.login-form input {
+  padding: 0.9rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.25);
+  color: white;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.login-form input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.login-form input:focus {
+  background: rgba(255,255,255,0.35);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.6);
+}
+
+/* BOUTON STYLE (comme déconnexion) */
+.login-form button {
+  padding: 1rem;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 1px;
+}
+
+.login-form button:hover {
+  background: #ff8282;
+  transform: translateY(-3px);
+}
