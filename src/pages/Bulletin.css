@@ -1,107 +1,722 @@
-.bulletin-page {
-  margin-left: 240px;
-  padding: 20px;
-  width: 100%;
-  font-family: 'Arial', sans-serif;
+/* Variables CSS */
+:root {
+  --primary-color: #4361ee;
+  --primary-light: #eef2ff;
+  --secondary-color: #3a0ca3;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-light: #9ca3af;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --transition: all 0.3s ease;
 }
 
-.select-box {
-  margin-bottom: 20px;
-}
-
-.select-box select {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.bulletin-actions {
+/* Conteneur principal */
+.bulletin-container {
   display: flex;
-  gap: 12px;
-  margin-bottom: 15px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.btn {
-  padding: 10px 18px;
-  border-radius: 8px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
+.bulletin-main {
+  flex: 1;
+  margin-left: 280px;
+  padding: 2rem;
+  min-height: 100vh;
 }
 
-.dashboard-btn {
-  background: #6b7280;
+/* En-tête de page */
+.bulletin-header {
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 800;
   color: white;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, white, #e0e7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-.dashboard-btn:hover {
-  background: #4b5563;
+
+.page-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+}
+
+/* Contenu principal */
+.bulletin-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Carte de sélection */
+.selection-card {
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.selection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.selection-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.selection-title .icon {
+  font-size: 1.5rem;
+}
+
+.selection-title h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.count-badge {
+  background: var(--primary-light);
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Sélecteur personnalisé */
+.select-wrapper {
+  width: 100%;
+}
+
+.select-label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.label-text {
+  display: block;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.select-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  background: white;
+  color: var(--text-primary);
+  cursor: pointer;
+  appearance: none;
+  transition: var(--transition);
+}
+
+.select-input:hover {
+  border-color: var(--primary-color);
+}
+
+.select-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+.select-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  pointer-events: none;
+}
+
+/* Barre d'actions */
+.actions-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.action-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+.back-btn {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.back-btn:hover {
+  background: var(--bg-tertiary);
+  transform: translateX(-2px);
+}
+
+.print-btn {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.print-btn:hover {
+  background: var(--bg-tertiary);
+  transform: translateY(-1px);
 }
 
 .export-btn {
-  background: #000dff;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
-}
-.export-btn:hover {
-  background: #6b73ff;
+  border: none;
 }
 
+.export-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.export-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Carte du bulletin */
 .bulletin-card {
   background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  max-width: 700px;
-  margin: auto;
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-xl);
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
 }
 
-.bulletin-header {
+/* En-tête institutionnel */
+.institution-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-color);
 }
 
-.bulletin-header .logo {
-  font-size: 40px;
+.institution-logo {
+  flex: 0 0 auto;
 }
 
-.bulletin-header h2 {
-  margin: 0;
-  color: #111827;
+.logo-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
 }
 
-.student-info {
-  margin-bottom: 15px;
-}
-
-.bulletin-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-.bulletin-table th, .bulletin-table td {
-  border: 1px solid #e5e7eb;
-  padding: 10px;
+.institution-info {
+  flex: 1;
   text-align: center;
 }
 
-.bulletin-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.institution-info h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
 }
 
-.signature {
+.institution-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.institution-address {
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+.bulletin-stamp {
+  flex: 0 0 auto;
+}
+
+.stamp-content {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--danger-color);
+  border-radius: var(--radius-md);
+  color: var(--danger-color);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  transform: rotate(15deg);
+}
+
+/* Titre du document */
+.document-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.document-title h2 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.title-underline {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Grille d'informations */
+.student-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+}
+
+.info-box {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 6px;
 }
 
-.sign-box {
-  width: 120px;
-  height: 40px;
-  border-bottom: 2px solid #000;
+.info-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.info-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.info-value.highlight {
+  color: var(--primary-color);
+}
+
+/* Tableau des notes */
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.grades-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.grades-table thead {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.grades-table th {
+  padding: 1rem;
+  text-align: left;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 3px solid var(--border-color);
+}
+
+.grades-table th:first-child {
+  border-top-left-radius: var(--radius-lg);
+}
+
+.grades-table th:last-child {
+  border-top-right-radius: var(--radius-lg);
+}
+
+.grades-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.grades-table tr:last-child td {
+  border-bottom: none;
+}
+
+.grades-table tr.even-row {
+  background: var(--bg-secondary);
+}
+
+.grades-table tr:hover {
+  background: var(--primary-light);
+}
+
+.matiere-col {
+  width: 30%;
+}
+
+.matiere-cell {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.note-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  min-width: 45px;
+  text-align: center;
+}
+
+.note-good {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.note-low {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.coef-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: var(--primary-light);
+  color: var(--primary-color);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.appreciation-cell {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Résumé des résultats */
+.results-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.result-card {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.result-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.result-card.highlight {
+  background: linear-gradient(135deg, var(--primary-light), white);
+  border: 2px solid var(--primary-color);
+}
+
+.result-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.result-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.average-value {
+  color: var(--primary-color);
+  font-size: 1.75rem;
+}
+
+/* Pied de page du bulletin */
+.bulletin-footer {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border-color);
+}
+
+.mention-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.mention-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.mention-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid;
+  border-radius: var(--radius-lg);
+  background: white;
+}
+
+.signatures-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.signature-box {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+
+.signature-box p {
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.signature-line {
+  height: 1px;
+  background: var(--border-color);
+  margin: 0 auto;
+  max-width: 200px;
+}
+
+.signature-underline {
+  height: 2px;
+  background: var(--text-primary);
+  margin: 0.25rem auto 0;
+  max-width: 150px;
+}
+
+/* État vide */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  margin-top: 2rem;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .bulletin-main {
+    margin-left: 80px;
+    padding: 1.5rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .bulletin-card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bulletin-main {
+    margin-left: 0;
+    margin-top: 80px;
+  }
+  
+  .bulletin-container {
+    flex-direction: column;
+  }
+  
+  .actions-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .action-group {
+    flex-direction: column;
+  }
+  
+  .institution-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .bulletin-stamp {
+    align-self: center;
+  }
+  
+  .results-summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .signatures-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .signature-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .bulletin-main {
+    padding: 1rem;
+  }
+  
+  .page-title {
+    font-size: 1.75rem;
+  }
+  
+  .bulletin-card {
+    padding: 1.5rem;
+  }
+  
+  .student-details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .grades-table th,
+  .grades-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Animation pour l'apparition */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bulletin-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Styles d'impression */
+@media print {
+  .bulletin-container {
+    background: none;
+  }
+  
+  .bulletin-main {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .bulletin-header,
+  .selection-card,
+  .actions-bar,
+  .empty-state {
+    display: none;
+  }
+  
+  .bulletin-card {
+    box-shadow: none;
+    border: 1px solid #000;
+    margin: 0;
+    padding: 1cm;
+  }
+  
+  .institution-header {
+    padding-bottom: 0.5cm;
+  }
+  
+  .bulletin-stamp {
+    display: none;
+  }
 }
