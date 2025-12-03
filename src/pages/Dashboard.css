@@ -43,7 +43,7 @@ body {
 .dashboard-main-container {
   flex: 1;
   margin-left: 240px;
-  padding: 24px;
+  padding: 50px;
   min-height: 100vh;
   background-color: var(--background-light);
 }
