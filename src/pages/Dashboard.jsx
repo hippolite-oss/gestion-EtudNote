@@ -317,7 +317,7 @@ export default function Dashboard() {
               <h3><FaCalendarAlt /> Calendrier Académique</h3>
               <div className="calendar-nav">
                 <button className="nav-btn">‹</button>
-                <span className="current-month">Novembre 2024</span>
+                <span className="current-month">Novembre 2025</span>
                 <button className="nav-btn">›</button>
               </div>
             </div>
